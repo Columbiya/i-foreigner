@@ -1,0 +1,21 @@
+.main {
+    display: flex;
+
+    &__right {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+        display: block;
+
+        &__content {
+            box-sizing: border-box;
+        }
+
+        &__right {
+            width: 100%;
+        }
+    }
+}

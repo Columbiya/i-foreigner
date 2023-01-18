@@ -1,0 +1,247 @@
+.contacts {
+    margin: 15px 15px;
+    background-color: #fff;
+    max-width: 100%;
+
+    &__inner {
+        max-width: 900px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 40px;
+        grid-template-columns: 1.5fr 2fr;
+
+        padding: 50px 35px;
+    }
+
+    &__left {
+        width: 40%;
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 55%;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    &__item {
+        padding: 13px 25px 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.13);
+
+        &.map {
+            position: relative;
+            padding-bottom: 120px;
+
+            .contacts__value {
+                max-width: 220px;
+            }
+
+            .contacts__address {
+                max-width: 250px;
+            }
+        }
+
+        &.slider {
+            margin-top: 25px;
+            padding-top: 50px;
+            padding-bottom: 15px;
+            padding-left: 63px;
+            padding-right: 63px;
+
+            cursor: grab;
+
+            user-select: none;
+            position: relative;
+
+            .contacts__title {
+                position: absolute;
+                top: 15px;
+                left: 63px;
+            }
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 25px;
+        }
+    }
+
+    &__title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: rgba(0, 0, 0, .4);
+
+        margin-bottom: 10px;
+    }
+
+    &__name {
+        font-size: 2.2rem;
+        color: rgba(0, 0, 0, .6);
+        margin-bottom: 13px;
+    }
+
+    &__text {
+        display: block;
+        font-size: 1.6rem;
+        color: rgba(0, 0, 0, 0.52);
+        margin-bottom: 35px;
+    }
+
+    &__value {
+        display: inline-block;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: rgba(0, 0, 0, .52);
+
+        margin-bottom: 20px;
+    }
+
+    &__address {
+        display: inline-block;
+        font-size: 1.6rem;
+        color: rgba(0, 0, 0, 0.6);
+        font-weight: 600;
+
+        margin: 15px 0 0;
+    }
+
+    &__map {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+    }
+
+    a.contacts__value {
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.slider-navigation {
+    position: absolute;
+    width: 45px;
+    height: 100%;
+    top: 0;
+    cursor: pointer;
+    z-index: 500;
+
+    transition: background-color .5s ease;
+
+    &::before {
+        content: "";
+        border-bottom: 3px solid rgba(0, 0, 0, 0.34);
+        border-right: 3px solid rgba(0, 0, 0, 0.34);
+        display: block;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &.back {
+        left: 0;
+
+        &::before {
+            transform: translate(-30%, -50%) rotate(135deg);
+        }
+    }
+
+    &.forward {
+        right: 0;
+
+        &::before {
+            transform: translate(-70%, -50%) rotate(-45deg);
+        }
+    }
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.34);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .contacts {
+        &__inner {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contacts {
+        &__inner {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__item {
+            width: 100%;
+
+            margin-bottom: 25px;
+
+            &.map {
+                .contacts__address {
+                    max-width: 300px;
+                }
+            }
+        }
+
+        &__left {
+            width: 100%;
+        }
+
+        &__right {
+            width: 100%;
+        }
+
+
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .contacts {
+        &__item {
+            &.slider {
+                padding: 0;
+            }
+        }
+    }
+
+    .slider-navigation {
+        background: rgba(0, 0, 0, .2);
+
+        width: 30px;
+
+        &::before {
+            border-bottom: 3px solid #fff;
+            border-right: 3px solid #fff;
+        }
+    }
+}
+
+.swiper-wrapper {
+    display: flex;
+}
+
+.swiper-slide {
+    display: table;
+}
+.swiper-slide {
+    display: table;
+}

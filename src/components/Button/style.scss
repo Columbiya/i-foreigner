@@ -1,0 +1,52 @@
+.button {
+    font-size: 2rem;
+    padding: 14px;
+    background: rgba(217, 217, 217, 0.6);
+    border-radius: 45px;
+
+    display: block;
+    text-align: center;
+
+    max-width: 600px;
+    width: 100%;
+
+    transition: background-color .3s ease,
+                border-color .3s ease;
+
+    &:hover {
+        background-color: #BCBCBC;
+        border-color: #ccc;
+    }
+
+    &.no-radius {
+        border-radius: 0;
+    }
+
+    &.small {
+        max-width: 140px;
+        padding: 8px 20px;
+        font-size: 1.5rem;
+    }
+
+    &.hollow {
+        background: transparent;
+        border: 2px solid rgba(0, 0, 0, 0.29);
+
+        transition: background .5s ease;
+
+        &:hover {
+            background: rgba(217, 217, 217, 0.6);
+        }
+    }
+    
+    &.no-border {
+        width: auto;
+        margin: 0 auto;
+
+        border: none;
+
+        &:hover {
+            background: transparent;
+        }
+    }
+}

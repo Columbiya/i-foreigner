@@ -1,0 +1,123 @@
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px 0;
+
+    min-height: 100vh;
+
+    &__title {
+        font-size: 3rem;
+        margin-bottom: 35px;
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+    &__inner {
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    &__already-member {
+        position: absolute;
+        top: 75px;
+        right: 135px;
+
+        font-weight: 500;
+        font-size: 1.6rem;
+        color: rgba(0, 0, 0, 0.56);
+
+        a {
+            color: #138ed4;
+        }
+    }
+
+    &__separator {
+        overflow: visible;
+        color: rgba(0, 0, 0, 0.15);
+        border-color: rgba(0, 0, 0, 0.15);
+        background-color: rgba(0, 0, 0, 0.15);
+
+        margin: 45px 0;
+
+        position: relative;
+
+        &::after {
+            content: "or";
+            font-size: 2rem;
+            color: rgba(0, 0, 0, 0.37);
+
+            display: grid;
+            place-items: center;
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            border-radius: 50%;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 500;
+        }
+    }
+
+    &__via-socials {
+        font-size: 1.6rem;
+        color: rgba(0, 0, 0, 0.55);
+        font-weight: 400;
+
+        margin-bottom: 20px;
+    }
+
+    .button {
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.auth {
+    &__forgot-password {
+        color: #138ed4;
+        font-size: 1.5rem;
+        cursor: pointer;
+
+        width: 40%;
+    }
+
+    &-forgot__container {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .register {
+        &__already-member {
+            top: 35px;
+            right: 25px;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .register {
+        &__already-member {
+            display: block;
+            text-align: right;
+            position: static;
+        }
+    }
+
+    .auth-forgot {
+        &__container {
+            display: block;
+        }
+    }
+
+    .auth__forgot-password {
+        display: block;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}

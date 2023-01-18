@@ -1,0 +1,62 @@
+.instructions {
+    max-width: 400px;
+    width: 100%;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 15px;
+
+    &__title {
+        color: rgba(0, 0, 0, 0.6);
+        font-weight: 500;
+        font-size: 3rem;
+
+        margin-bottom: 35px;
+    }
+
+    &__text {
+        font-size: 1.6rem;
+        color: rgba(0, 0, 0, 0.69);
+        font-weight: 500;
+
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__blue {
+        color: #2883C6;
+    }
+
+    .swiper {
+        cursor: grab;
+
+        padding-bottom: 50px;
+        margin-bottom: 40px;
+    }
+
+    .swiper-pagination-bullet {
+        background: rgba(114, 114, 114, 0.81);
+
+        transition: width .5s ease;
+
+        &-active {
+            background: #838383;
+            width: 20px;
+            border-radius: 10px;
+        }
+    }
+
+    .button {
+        &:not(:last-child) {
+            margin-bottom: 27px;
+        }
+    }
+
+    &__continue {
+        margin-top: 90px;
+    }
+}

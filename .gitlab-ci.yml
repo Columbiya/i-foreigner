@@ -1,0 +1,41 @@
+image: node:18.12.1
+
+stages:
+  - build
+  - deploy
+cache: &global_cache
+  key: $CI_COMMIT_REF_SLUG
+  paths:
+    - .npm/
+    - node_modules
+
+build:
+  stage: build
+  script:
+    - npm install 
+    - CI=false npm run build
+    - ls build
+  artifacts:
+    paths:
+      - build/
+    expire_in: 1 day
+    when: always
+  cache:
+    <<: *global_cache
+
+deploy-stage:
+  stage: deploy
+
+  script:
+    - set -x
+    - chmod 600 $SSH_KEY_FILE
+    - cd build/
+    - tar -zcvf build-$CI_COMMIT_REF_SLUG.tar.gz *
+    - export SERVER_SSH_CONNECTION=ubuntu@${IFOREIGNER_HOST}
+    - scp -o StrictHostKeyChecking=no -i $SSH_KEY_FILE build-$CI_COMMIT_REF_SLUG.tar.gz ${SERVER_SSH_CONNECTION}:/tmp/
+    - ssh -o StrictHostKeyChecking=no -i $SSH_KEY_FILE ${SERVER_SSH_CONNECTION} "tar -xvzf /tmp/build-$CI_COMMIT_REF_SLUG.tar.gz -C /var/www/html/"
+  only:
+    - tags
+
+
+

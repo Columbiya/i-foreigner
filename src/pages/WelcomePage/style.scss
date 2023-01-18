@@ -1,0 +1,54 @@
+.welcome {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        height: 100vh;
+
+        .button {
+            &:not(:last-child) {
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    &__content {
+        min-height: 350px; 
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        text-align: center;
+    }
+    &__title {
+        font-size: 5.8rem;
+        font-weight: 500;
+
+        margin-bottom: 25px;
+    }
+
+    &__subtitle {
+        font-size: 3rem;
+        font-weight: 400;
+    }
+
+    &__buttons {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .welcome {
+        &__buttons {
+            max-width: 350px;
+            width: 100%;
+        }
+        
+        &__content {
+            min-height: 270px;
+        }
+    }
+}
